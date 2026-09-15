@@ -196,48 +196,11 @@ function initShareAndDownload() {
     const qrCanvas = document.getElementById('qrCanvas');
     const logoImg = document.getElementById('qrCenterLogo');
 
-    if (downloadBtn && qrCanvas) {
+    if (downloadBtn) {
         downloadBtn.addEventListener('click', () => {
-            // Merge canvas with center logo for export image
-            const exportCanvas = document.createElement('canvas');
-            exportCanvas.width = 400;
-            exportCanvas.height = 400;
-            const ctx = exportCanvas.getContext('2d');
-
-            // Background
-            ctx.fillStyle = '#06080E';
-            ctx.fillRect(0, 0, 400, 400);
-
-            // Border & Glow
-            ctx.strokeStyle = '#00E5FF';
-            ctx.lineWidth = 4;
-            ctx.strokeRect(10, 10, 380, 380);
-
-            // Draw QR Code
-            ctx.drawImage(qrCanvas, 50, 50, 300, 300);
-
-            // Draw Logo in Center
-            if (logoImg && logoImg.complete) {
-                const logoSize = 70;
-                const logoX = (400 - logoSize) / 2;
-                const logoY = (400 - logoSize) / 2;
-
-                ctx.fillStyle = '#06080E';
-                ctx.beginPath();
-                ctx.arc(200, 200, logoSize / 2 + 4, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.strokeStyle = '#00E5FF';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-
-                ctx.drawImage(logoImg, logoX, logoY, logoSize, logoSize);
-            }
-
-            // Trigger Download
             const link = document.createElement('a');
             link.download = 'FinTeClub_QR_Code.png';
-            link.href = exportCanvas.toDataURL('image/png');
+            link.href = 'finteclub_qr.png';
             link.click();
 
             showToast('QR Kod indiriliyor...');
