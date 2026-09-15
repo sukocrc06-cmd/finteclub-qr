@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTeClub | AYBÜ Finans & Teknoloji Kulübü</title>
+    <meta name="description" content="Ankara Yıldırım Beyazıt Üniversitesi Finans ve Teknoloji Kulübü (FinTeClub) resmi sosyal medya, iletişim ve başvuru bağlantıları.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Canvas for Circuit & Candlestick FX -->
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="main-container">
+        <!-- Header / Profile Section -->
+        <header class="profile-card">
+            <div class="logo-wrapper">
+                <div class="logo-glow"></div>
+                <img src="logoqr.png" alt="FinTeClub Logo" class="profile-logo">
+            </div>
+            <h1 class="club-title">FinTeClub</h1>
+            <p class="university-tag">Ankara Yıldırım Beyazıt Üniversitesi</p>
+            <p class="club-subtitle">Geleceğin Finans ve Teknoloji Liderleri</p>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-icon"><i class="fa-solid fa-chart-line"></i></span>
+                    <span class="stat-text">Fintech</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-icon"><i class="fa-solid fa-microchip"></i></span>
+                    <span class="stat-text">Yazılım</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-icon"><i class="fa-solid fa-coins"></i></span>
+                    <span class="stat-text">Blokzincir</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Links -->
+        <main class="links-container">
+            <!-- Featured Primary CTA: Form -->
+            <a href="https://docs.google.com/forms/d/1OGbMZlQHUZJbjsiPK99hosLc1oauXrQS72xBrzFiins/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" class="link-card cta-card">
+                <div class="card-glow"></div>
+                <div class="card-icon-wrapper form-icon">
+                    <i class="fa-solid fa-file-pen"></i>
+                </div>
+                <div class="card-content">
+                    <div class="card-badge">ÖNCELİKLİ</div>
+                    <span class="card-title">Kulüp Üyelik Başvuru Formu</span>
+                    <span class="card-desc">FinTeClub ailesine katılmak için formu doldurun</span>
+                </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </a>
+
+            <div class="section-title">Sosyal Medya & İletişim</div>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/aybufinteclub/" target="_blank" rel="noopener noreferrer" class="link-card instagram-card">
+                <div class="card-icon-wrapper instagram-bg">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">Instagram</span>
+                    <span class="card-desc">@aybufinteclub • Etkinlikler ve Duyurular</span>
+                </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/finteclub-ayb%C3%BC-10a4173ab/" target="_blank" rel="noopener noreferrer" class="link-card linkedin-card">
+                <div class="card-icon-wrapper linkedin-bg">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">LinkedIn</span>
+                    <span class="card-desc">FinTeClub AYBÜ • Profesyonel Ağımız</span>
+                </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@fnteclub?_r=1&_t=ZS-97BYcCHsmva" target="_blank" rel="noopener noreferrer" class="link-card tiktok-card">
+                <div class="card-icon-wrapper tiktok-bg">
+                    <i class="fa-brands fa-tiktok"></i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">TikTok</span>
+                    <span class="card-desc">@fnteclub • Eğlenceli ve Eğitici İçerikler</span>
+                </div>
+                <div class="card-arrow">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </div>
+            </a>
+
+            <!-- Email Card with Copy Option -->
+            <div class="link-card email-card" id="emailCard">
+                <div class="card-icon-wrapper email-bg">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="card-content">
+                    <span class="card-title">E-Posta Adresi</span>
+                    <span class="card-desc" id="emailText">finteclubaybu@gmail.com</span>
+                </div>
+                <div class="card-actions">
+                    <button class="icon-btn" id="copyEmailBtn" title="E-postayı Kopyala">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                    <a href="mailto:finteclubaybu@gmail.com" class="icon-btn" title="Mail Gönder">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Dynamic QR Code Card -->
+        <section class="qr-section">
+            <div class="qr-card">
+                <div class="qr-header">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <h2>Resmi QR Kodumuz</h2>
+                </div>
+                <p>Bu QR kod ile FinTeClub portalına anında erişebilirsiniz.</p>
+                <div class="qr-display-container">
+                    <div class="qr-frame">
+                        <img src="logoqr.png" id="qrCenterLogo" alt="Center Logo" class="qr-center-logo">
+                        <canvas id="qrCanvas"></canvas>
+                    </div>
+                </div>
+                <div class="qr-actions">
+                    <button id="downloadQrBtn" class="btn btn-secondary">
+                        <i class="fa-solid fa-download"></i> Kodu İndir
+                    </button>
+                    <button id="shareBtn" class="btn btn-primary">
+                        <i class="fa-solid fa-share-nodes"></i> Paylaş
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <p>© 2026 FinTeClub — Ankara Yıldırım Beyazıt Üniversitesi</p>
+            <p class="tagline">Finans & Teknoloji Topluluğu</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">E-posta adresi kopyalandı!</span>
+    </div>
+
+    <!-- QRCode JS Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
