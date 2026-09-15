@@ -162,27 +162,28 @@ function initQRCode() {
    3. Copy Email to Clipboard
    -------------------------------------------------------------------------- */
 function initCopyEmail() {
-    const copyBtn = document.getElementById('copyEmailBtn');
-    const emailText = document.getElementById('emailText');
+    const copyBtns = document.querySelectorAll('.copy-email-btn');
 
-    if (!copyBtn || !emailText) return;
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
 
-    copyBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+            const emailToCopy = btn.getAttribute('data-email');
+            if (!emailToCopy) return;
 
-        const textToCopy = emailText.textContent.trim();
-        navigator.clipboard.writeText(textToCopy).then(() => {
-            showToast('E-posta adresi kopyalandı!');
-        }).catch(() => {
-            // Fallback
-            const textArea = document.createElement('textarea');
-            textArea.value = textToCopy;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            showToast('E-posta adresi kopyalandı!');
+            navigator.clipboard.writeText(emailToCopy).then(() => {
+                showToast(`${emailToCopy} kopyalandı!`);
+            }).catch(() => {
+                // Fallback
+                const textArea = document.createElement('textarea');
+                textArea.value = emailToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast(`${emailToCopy} kopyalandı!`);
+            });
         });
     });
 }
